@@ -1,0 +1,6 @@
+[user]
+	name = AlbertDayn
+	email = Albert.Dayn@Colorado.edu
+
+[core]
+	sshCommand = ssh -F /dev/null -i ~/.ssh/id_rsa_cu

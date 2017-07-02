@@ -1,0 +1,9 @@
+[user]
+	name = A-Flyin-Muffin
+	email = Albertdn97@gmail.com
+	
+[core]
+	excludesFile = ~/.config/git/ignore
+
+[includeIf "gitdir:~/college/"]
+	path = ~/.gitconfig_cu
