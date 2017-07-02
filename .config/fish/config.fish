@@ -19,7 +19,7 @@ set fish_color_error				red --bold
 set fish_color_param				brwhite
 set fish_color_comment				brblack --italics
 set fish_color_match				cyan
-set fish_color_search_match			white
+set fish_color_search_match			--background=black
 set fish_color_operator				purple
 set fish_color_escape				bryellow
 set fish_color_autosuggestion		white
