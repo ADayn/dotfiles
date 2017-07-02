@@ -5,6 +5,7 @@ abbr --add ra trash
 abbr --add p 'python3'
 
 set --export PATH ~/.cargo/bin $PATH
+set --export EDITOR /usr/local/bin/subl
 set --export CLICOLOR 1
 set --export LSCOLORS 'HxfxfxfxexfxfxexexHxHx'
 
