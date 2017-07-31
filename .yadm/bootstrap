@@ -1,0 +1,110 @@
+#! /usr/bin/env bash
+
+#
+# Options
+#
+
+personal_rsa_id_location='~/.ssh/id_rsa'
+personal_email='albertdn97@gmail.com'
+school_rsa_id_location='~/.ssh/id_rsa_cu'
+school_email='Albert.Dayn@Colorado.edu'
+
+
+#########################
+# Helper funcs and vars #
+#########################
+
+# Colors
+
+red='\033[00;31m'
+green='\033[00;32m'
+yellow='\033[00;33m'
+blue='\033[00;34m'
+purple='\033[00;35m'
+cyan='\033[00;36m'
+lgrey='\033[00;37m'
+
+lred='\033[01;31m'
+lgreen='\033[01;32m'
+lyellow='\033[01;33m'
+lblue='\033[01;34m'
+lpurple='\033[01;35m'
+lcyan='\033[01;36m'
+white='\033[01;37m'
+
+normal='\033[0m'
+
+# echo with colors
+echoe() {
+	echo -e "$@"
+}
+
+# Prompt for confirmation
+yn() {
+	question="$1"
+	echoe ''
+	echoe "${blue}*${normal} ${question}? (y | n)"
+	echoe "${blue}> ${normal}"
+	# Taken from https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+	while true; do
+	    read -n 1 yn
+	    echoe ""
+	    case $yn in
+	        [Yy]* ) return 0;;
+	        [Nn]* ) return -1;;
+	        * ) echoe "${lred}\"$yn\"${normal} is not a recognized option. Choose either ${green}\"y\"${normal} for yes or ${green}\"n\"${normal} for no";;
+	    esac
+	done
+}
+
+
+#######################
+# Universal bootstrap #
+#######################
+
+cd "$HOME"
+
+#
+# SSH
+#
+initialize_ssh() {
+
+	ssh_id_file_location="$1"
+	ssh_email="$2"
+
+	# Ask before overwriting
+	[ -f "$ssh_id_file_location" ] && yn "Overwrite current id_rsa key (${ssh_email})" || return -1
+
+	ssh-keygen -t rsa -C "$ssh_email" -f "$ssh_id_file_location"
+	ssh-add "$ssh_id_file_location"
+
+	echoe "Here is your public key:"
+	cat "${ssh_id_file_location}.pub"
+	echoe -n "Copy this and add it to github. Press enter when done..."
+	read -s
+}
+
+initialize_ssh_personal() {
+	initialize_ssh "$personal_rsa_id_location" "$personal_email"
+}
+
+initialize_ssh_school() {
+	initialize_ssh "$school_rsa_id_location" "$school_email"
+}
+
+yn "Initialize personal ssh key (for ${personal_email})" && initialize_ssh_personal || echoe 'Personal ssh key initialization skipped'
+yn "Initialize school ssh key (for ${school_email})" && initialize_ssh_school || echoe 'School ssh key initialization skipped'
+
+#
+# Submodules
+#
+# Because Git submodule commands cannot operate without a work tree, they must
+# be run from within $HOME (assuming this is the root of your dotfiles)
+
+initialize_submodules() {
+	yadm submodule update --recursive --init
+}
+yn 'Initialize submodules' && initialize_submodules || echoe 'Submodule initialization skipped'
+
+# Finished successfuly
+true
