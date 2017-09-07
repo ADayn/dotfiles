@@ -4,9 +4,9 @@
 # Options
 #
 
-personal_rsa_id_location='~/.ssh/id_rsa'
+personal_rsa_id_location="$HOME/.ssh/id_rsa"
 personal_email='albertdn97@gmail.com'
-school_rsa_id_location='~/.ssh/id_rsa_cu'
+school_rsa_id_location="$HOME/.ssh/id_rsa_cu"
 school_email='Albert.Dayn@Colorado.edu'
 dotfiles_ssh='git@github.com:A-Flyin-Muffin/dotfiles.git'
 
@@ -90,16 +90,20 @@ initialize_ssh() {
 	notice "Setting up ssh for email = '$ssh_email' in file = '$ssh_id_file_location'."
 
 	# Ask before overwriting
-	[ -f "$ssh_id_file_location" ] && yn "Overwrite current id_rsa key (${ssh_email})" || return -1
+	if [ -f "$ssh_id_file_location" ]; then
+		yn "Overwrite current id_rsa key (${ssh_email})" || return -1
+		rm "$ssh_id_file_location"
+		rm "$ssh_id_file_location.pub"
+	fi
 
 	ssh-keygen -t rsa -C "$ssh_email" -f "$ssh_id_file_location"
 	ssh-add "$ssh_id_file_location"
 
-	echoe 'Here is your public key:'
+	notice 'Here is your public key:'
 	echoe ''
 	cat "${ssh_id_file_location}.pub"
 	echoe ''
-	echoe -n 'Copy this and add it to github. Press enter when done...'
+	echoe -n "Copy this and add it to github for $ssh_email. Press enter when done..."
 	read -s
 }
 
