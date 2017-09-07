@@ -4,6 +4,7 @@
 	
 [core]
 	excludesFile = ~/.config/git/ignore
+	editor = /usr/bin/env subl -n -w
 
-[includeIf "gitdir:~/college/"]
+[include]
 	path = ~/.gitconfig_cu

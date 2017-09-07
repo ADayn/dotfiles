@@ -2,7 +2,7 @@ set semester '2017_fall'
 
 set --export PATH ~/.cargo/bin $PATH
 set --export PATH $PATH '/usr/local/opt/coreutils/libexec/gnubin'
-set --export EDITOR /usr/local/bin/subl
+set --export EDITOR "/usr/bin/env subl"
 set --export CLICOLOR 1
 set --export LSCOLORS 'HxfxfxfxexfxfxexexHxHx'
 
@@ -36,8 +36,6 @@ alias rst 'exec fish'
 alias cu "cd ~/college/$semester"
 abbr --add ra trash
 abbr --add p 'python3'
-abbr --add 1 true
-abbr --add 0 false
 abbr --add link 'ln -s'
 abbr --add hi 'stack repl'
 
