@@ -1,10 +1,7 @@
-alias ls 'command ls -AFLh'
-alias l 'ls'
-alias rst 'exec fish'
-abbr --add ra trash
-abbr --add p 'python3'
+set semester '2017_fall'
 
 set --export PATH ~/.cargo/bin $PATH
+set --export PATH $PATH '/usr/local/opt/coreutils/libexec/gnubin'
 set --export EDITOR /usr/local/bin/subl
 set --export CLICOLOR 1
 set --export LSCOLORS 'HxfxfxfxexfxfxexexHxHx'
@@ -31,4 +28,18 @@ set fish_pager_color_description	bryellow
 set fish_pager_color_progress		brwhite --bold
 
 set fish_greeting
+
+
+alias ls 'command ls -AFLh'
+alias ll 'ls -l'
+alias rst 'exec fish'
+alias cu "cd ~/college/$semester"
+abbr --add ra trash
+abbr --add p 'python3'
+abbr --add 1 true
+abbr --add 0 false
+abbr --add link 'ln -s'
+abbr --add hi 'stack repl'
+
+
 clear
