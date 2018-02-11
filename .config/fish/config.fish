@@ -1,4 +1,4 @@
-set semester '2017_fall'
+# set semester '2017_fall'
 
 set --export PATH ~/.cargo/bin $PATH
 set --export PATH $PATH '/usr/local/opt/coreutils/libexec/gnubin'
@@ -33,11 +33,16 @@ set fish_greeting
 alias ls 'command ls -AFLh'
 alias ll 'ls -l'
 alias rst 'exec fish'
-alias cu "cd ~/college/$semester"
+alias cu "cd ~/college"
 abbr --add ra trash
 abbr --add p 'python3'
 abbr --add link 'ln -s'
 abbr --add hi 'stack repl'
+
+# PYENV
+set PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
+pyenv rehash
 
 
 clear

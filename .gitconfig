@@ -1,10 +1,10 @@
 [user]
-	name = A-Flyin-Muffin
-	email = Albertdn97@gmail.com
+	name = ADayn
+	email = Albert.Dayn@Colorado.edu
 	
 [core]
 	excludesFile = ~/.config/git/ignore
 	editor = /usr/bin/env subl -n -w
 
-[includeIf "gitdir:~/college/"]
-	path = ~/.gitconfig_cu
+#[includeIf "gitdir:~/college/"]
+#	path = ~/.gitconfig_bb
