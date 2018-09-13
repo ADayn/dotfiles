@@ -1,6 +1,7 @@
 # set semester '2017_fall'
 
 set --export PATH ~/.cargo/bin $PATH
+set --export PATH ~/.local/bin $PATH
 set --export PATH $PATH '/usr/local/opt/coreutils/libexec/gnubin'
 set --export EDITOR "/usr/bin/env subl"
 set --export CLICOLOR 1
@@ -33,7 +34,9 @@ set fish_greeting
 alias ls 'command ls -AFLh'
 alias ll 'ls -l'
 alias rst 'exec fish'
-alias cu "cd ~/college"
+alias cu "cd ~/college/current"
+alias ta "cd ~/college/current/ta_csci_3155"
+alias julia '/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia'
 abbr --add ra trash
 abbr --add p 'python3'
 abbr --add link 'ln -s'
@@ -46,3 +49,11 @@ pyenv rehash
 
 
 clear
+
+# OPAM configuration
+# . /Users/albertdayn/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
+# ???? . /Users/albertdayn/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+# eval (opam config env)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/albertdayn/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/albertdayn/google-cloud-sdk/path.fish.inc'; else; . '/Users/albertdayn/google-cloud-sdk/path.fish.inc'; end; end
