@@ -4,7 +4,7 @@
 	
 [core]
 	excludesFile = ~/.config/git/ignore
-	editor = /usr/bin/env subl -n -w
+	editor = nano
 
 #[includeIf "gitdir:~/college/"]
 #	path = ~/.gitconfig_bb

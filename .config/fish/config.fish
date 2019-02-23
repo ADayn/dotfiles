@@ -34,9 +34,15 @@ set fish_greeting
 alias ls 'command ls -AFLh'
 alias ll 'ls -l'
 alias rst 'exec fish'
-alias cu "cd ~/college/current"
-alias ta "cd ~/college/current/ta_csci_3155"
 alias julia '/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia'
+
+alias cu "cd ~/college"
+alias ta "cd ~/college/ta"
+alias cdow "cd ~/Downloads"
+alias cu1 "echo \"NLP\"; cd ~/college/csci_5832/"
+alias cu2 "echo \"MechE\"; cd ~/college/mcen_4045/"
+alias cu3 "echo \"CV\"; cd ~/college/csci_5722/"
+
 abbr --add ra trash
 abbr --add p 'python3'
 abbr --add link 'ln -s'
