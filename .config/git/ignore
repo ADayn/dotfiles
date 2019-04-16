@@ -1,12 +1,16 @@
 .DS_Store
 
 # Intellij
-*.iws
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
 
 # MVN et. al.
 .classpath
@@ -17,3 +21,4 @@
 .ipynb_checkpoints
 .sublime-workspace
 .nbgrader.log
+tmp/
