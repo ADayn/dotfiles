@@ -6,6 +6,7 @@ set --export PATH $PATH '/usr/local/opt/coreutils/libexec/gnubin'
 set --export EDITOR "/usr/bin/env nano"
 set --export CLICOLOR 1
 set --export LSCOLORS 'HxfxfxfxexfxfxexexHxHx'
+set --export GITHUB_TOKEN '4850e09c04d6014091feb0bbacae281a91cb9ce5'
 
 # Syntax highlighting theme
 set fish_color_normal 				white
@@ -34,6 +35,7 @@ set fish_greeting
 alias l 'command ls -AFLh'
 	alias ll 'l -l'
 alias rst 'exec fish'
+alias ff 'open -a Firefox'
 alias julia '/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia'
 
 alias cdow "cd ~/Downloads"
@@ -67,7 +69,7 @@ abbr --add java_new 'java11'
 
 # PYENV
 set PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
+set --export PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
 pyenv rehash
 
 # The next line updates PATH for the Google Cloud SDK.
