@@ -11,7 +11,6 @@ import ammonite.shell._
 
 ammonite.shell.Configure(interp, repl, wd)
 
-
 //
 // CUSTOM SETUP
 //
